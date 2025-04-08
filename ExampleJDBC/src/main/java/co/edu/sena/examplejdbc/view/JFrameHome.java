@@ -43,27 +43,47 @@ public class JFrameHome extends javax.swing.JFrame {
         jButtonEmployeType.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonEmployeType.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEmployeType.setText("Tipos de funcionarios");
+        jButtonEmployeType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmployeTypeActionPerformed(evt);
+            }
+        });
 
         jButtonEmployee.setBackground(new java.awt.Color(0, 102, 0));
         jButtonEmployee.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonEmployee.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEmployee.setText("Funcionarios");
+        jButtonEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmployeeActionPerformed(evt);
+            }
+        });
 
         jButtonRecord.setBackground(new java.awt.Color(0, 102, 0));
         jButtonRecord.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonRecord.setForeground(new java.awt.Color(255, 255, 255));
         jButtonRecord.setText("Registros");
+        jButtonRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRecordActionPerformed(evt);
+            }
+        });
 
         jButtonKey.setBackground(new java.awt.Color(0, 102, 0));
         jButtonKey.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonKey.setForeground(new java.awt.Color(255, 255, 255));
         jButtonKey.setText("Llaves");
+        jButtonKey.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonKeyActionPerformed(evt);
+            }
+        });
 
         jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitle.setText("Menu principal");
 
-        jLabelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/sena/examplejdbc/view/key_icon_313x345.png"))); // NOI18N
+        jLabelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/views/key_icon_313x345.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanelHomeLayout = new javax.swing.GroupLayout(jPanelHome);
         jPanelHome.setLayout(jPanelHomeLayout);
@@ -111,14 +131,36 @@ public class JFrameHome extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 508, Short.MAX_VALUE))
+            .addComponent(jPanelHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonEmployeTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmployeTypeActionPerformed
+        JFrameEmployeeType view = new JFrameEmployeeType();
+        view.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButtonEmployeTypeActionPerformed
+
+    private void jButtonEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmployeeActionPerformed
+        JFrameEmployee view = new JFrameEmployee();
+        view.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButtonEmployeeActionPerformed
+
+    private void jButtonKeyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKeyActionPerformed
+        JFrameKey view = new JFrameKey();
+        view.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButtonKeyActionPerformed
+
+    private void jButtonRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRecordActionPerformed
+        JFrameRecord view = new JFrameRecord();
+        view.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButtonRecordActionPerformed
 
     /**
      * @param args the command line arguments

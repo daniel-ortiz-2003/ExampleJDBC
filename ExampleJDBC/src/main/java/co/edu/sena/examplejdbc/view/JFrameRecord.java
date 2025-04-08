@@ -113,11 +113,12 @@ public class JFrameRecord extends javax.swing.JFrame {
         jTableRecord = new javax.swing.JTable();
         jLabelStatus = new javax.swing.JLabel();
         jComboBoxStatus = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabelTitle.setText("Registro");
+        jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
 
         jLabelId.setText("Id:");
 
@@ -131,36 +132,36 @@ public class JFrameRecord extends javax.swing.JFrame {
 
         jLabelKeyId.setText("Llave:");
 
+        jButtonCreate.setText("Crear");
         jButtonCreate.setBackground(new java.awt.Color(0, 204, 0));
         jButtonCreate.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonCreate.setText("Crear");
         jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCreateActionPerformed(evt);
             }
         });
 
+        jButtonModify.setText("Modificar");
         jButtonModify.setBackground(new java.awt.Color(0, 0, 255));
         jButtonModify.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonModify.setText("Modificar");
         jButtonModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonModifyActionPerformed(evt);
             }
         });
 
+        jButtonDelete.setText("Eliminar");
         jButtonDelete.setBackground(new java.awt.Color(255, 51, 51));
         jButtonDelete.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonDelete.setText("Eliminar");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDeleteActionPerformed(evt);
             }
         });
 
+        jButtonClean.setText("Limpiar");
         jButtonClean.setBackground(new java.awt.Color(102, 102, 102));
         jButtonClean.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonClean.setText("Limpiar");
         jButtonClean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCleanActionPerformed(evt);
@@ -192,6 +193,14 @@ public class JFrameRecord extends javax.swing.JFrame {
         jLabelStatus.setText("Estado:");
 
         jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PENDIENTE", "ENTREGADO", "CANCELADO" }));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/views/home.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,18 +234,7 @@ public class JFrameRecord extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabelStatus)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabelId)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabelTitle)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabelDate)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(datePickerDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonCreate)
                                 .addGap(18, 18, 18)
@@ -247,15 +245,32 @@ public class JFrameRecord extends javax.swing.JFrame {
                                 .addComponent(jButtonClean))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jScrollPaneRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPaneRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelId)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelTitle)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelDate)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(datePickerDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelTitle)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelId)
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -277,7 +292,7 @@ public class JFrameRecord extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelStatus)
                     .addComponent(jComboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCreate)
                     .addComponent(jButtonModify)
@@ -353,7 +368,7 @@ public class JFrameRecord extends javax.swing.JFrame {
             //FK
             Employee employee = (Employee) jComboBoxEmployeeId.getSelectedItem();
             record.setEmployee(employee);
-            Key key = (Key) jComboBoxEmployeeId.getSelectedItem();
+            Key key = (Key) jComboBoxKeyId.getSelectedItem();
             record.setKey(key);
             record.setStatus(jComboBoxStatus.getSelectedItem().toString());
             
@@ -369,7 +384,7 @@ public class JFrameRecord extends javax.swing.JFrame {
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         try {
-            int option = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar este empleado?",
+            int option = JOptionPane.showConfirmDialog(rootPane, "Esta seguro de eliminar este registro?",
                                                                     "Confirmacion", JOptionPane.YES_NO_OPTION);
             if(option == JOptionPane.YES_OPTION)
             {
@@ -388,6 +403,12 @@ public class JFrameRecord extends javax.swing.JFrame {
     private void jButtonCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCleanActionPerformed
         clean();
     }//GEN-LAST:event_jButtonCleanActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        JFrameHome view = new JFrameHome();
+        view.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     public void clean(){
         jTextFieldId.setText("");
@@ -444,6 +465,7 @@ public class JFrameRecord extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxEmployeeId;
     private javax.swing.JComboBox<String> jComboBoxKeyId;
     private javax.swing.JComboBox<String> jComboBoxStatus;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDate;
     private javax.swing.JLabel jLabelEndTime;
     private javax.swing.JLabel jLabelId;
